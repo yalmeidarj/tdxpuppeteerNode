@@ -236,7 +236,7 @@ async function bot(chosenSite, username, password) {
       ? process.env.PUPPETEER_EXEUTABLE_PATH
       : puppeteeer.executablePath(),
     
-        // headless: false,
+        headless: false,
     args: ['--no-sandbox',
       '--disable-setuid-sandbox',
     ]
@@ -262,7 +262,7 @@ async function bot(chosenSite, username, password) {
         // Click the login button
         await page.click('input[name="Login"]');
 
-        await new Promise((resolve) => setTimeout(resolve, 45000));
+        await new Promise((resolve) => setTimeout(resolve, 145000));
         // Wait for the iframe to load
 
 
