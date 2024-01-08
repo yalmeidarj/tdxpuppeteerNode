@@ -1,4 +1,5 @@
 const puppeteeer = require('puppeteer');
+require('dotenv').config();
 
 const SalesForce = {
   URL: "https://bellconsent.my.salesforce.com/?ec=302&startURL=%2Fvisualforce%2Fsession%3Furl%3Dhttps%253A%252F%252Fbellconsent.lightning.force.com%252Flightning%252Fn%252FBell",
@@ -230,9 +231,15 @@ const SalesForce = {
 
 // bot should take a site name, and credentials (username, password) as arguments
 async function bot(chosenSite, username, password) {
-    const browser = await puppeteeer.launch({
-        headless: false,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+  const browser = await puppeteeer.launch({
+    executablePath: process.env.NODE_ENV === 'production'
+      ? process.env.PUPPETEER_EXEUTABLE_PATH
+      : puppeteeer.executablePath(),
+    
+        // headless: false,
+    args: ['--no-sandbox',
+      '--disable-setuid-sandbox',
+    ]
     });
     const page = await browser.newPage();
 

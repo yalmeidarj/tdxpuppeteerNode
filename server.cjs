@@ -24,4 +24,5 @@ app.listen(PORT, () => {
 });
 
 
-// http://localhost:7000/search?chosenSite=59&username=yalmeida.rj@gmail.com&password=rYeEsydWN!8808168eXkA9gV47A
+// http://localhost:7000/
+// /search?chosenSite=59&username=yalmeida.rj@gmail.com&password=rYeEsydWN!8808168eXkA9gV47A
