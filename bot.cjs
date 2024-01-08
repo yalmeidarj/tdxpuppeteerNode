@@ -247,7 +247,6 @@ async function bot(chosenSite, username, password) {
 
         // Navigate the page to a URL
         await page.goto(SalesForce.URL, { waitUntil: "networkidle0" });
-        await page.goto(SalesForce.URL, { waitUntil: "networkidle0" });
 
         await page.waitForSelector('input[name="username"]');
         await page.waitForSelector('input[name="pw"]');
@@ -278,14 +277,14 @@ async function bot(chosenSite, username, password) {
         const selectElementXPATH =
             "/html/body/div[1]/div[2]/div/div[4]/div[2]/div/div[3]/select"; // The selector for your select element
 
-        
+        const chosenSiteValue = SalesForce.siteOptions[`${chosenSite}`];
 
         // const selectTag = await page.$x(selectElement);
         await iframe.$$(SalesForce.selectTagSelector);
         // await iframe.waitForNavigation(SalesForce.selectTagSelector);
         await iframe.select(
-            SalesForce.selectTagSelector,
-            chosenSite
+          SalesForce.selectTagSelector,
+          chosenSiteValue
         );
 
         await new Promise((resolve) => setTimeout(resolve, 10000));
@@ -391,7 +390,7 @@ async function bot(chosenSite, username, password) {
 
         // Construct the final object
         const finalObject = {
-            name: "ORLNON06_2173A", // Adjust as needed
+            name: chosenSite, // Adjust as needed
             neighborhood: "to be verified",
             priorityStatus: 1,
             houses: allData,

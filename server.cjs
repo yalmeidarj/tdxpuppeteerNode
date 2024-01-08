@@ -12,8 +12,21 @@ app.get('/search', async(req, res) => {
     const { chosenSite, username, password } = req.query;
 
     // call the bot function, and pass in the query string parameters
-  const response = await bot(chosenSite, username, password)
-  res.send(response);
+  
+  
+  try {
+    const response = await bot(chosenSite, username, password)
+
+    res.send({
+      success: true,
+      data: response,
+    });
+  } catch (error) {
+    res.send({      
+      error: error.message,
+    })
+  }
+
 });
 
 
