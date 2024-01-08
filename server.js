@@ -4,7 +4,7 @@ const app = express();
 
 app.get('/', async(req, res) => {
     const response = await bot()
-  res.send('Hello World!');
+  res.send(response);
 });
 
 
