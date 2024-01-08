@@ -246,8 +246,9 @@ async function bot(chosenSite, username, password) {
     // const page = await browser.newPage();
 
         // Navigate the page to a URL
-        await page.goto(SalesForce.URL, { waitUntil: "networkidle0" });
+        await page.goto(SalesForce.URL);
 
+        await new Promise((resolve) => setTimeout(resolve, 5000));
         await page.waitForSelector('input[name="username"]');
         await page.waitForSelector('input[name="pw"]');
         await page.waitForSelector('input[name="Login"]');
@@ -277,15 +278,12 @@ async function bot(chosenSite, username, password) {
         const selectElementXPATH =
             "/html/body/div[1]/div[2]/div/div[4]/div[2]/div/div[3]/select"; // The selector for your select element
 
-        const chosenSiteValue = SalesForce.siteOptions[`${chosenSite}`];
+        const chosenSiteValue = SalesForce.siteOptions[chosenSite];
 
         // const selectTag = await page.$x(selectElement);
         await iframe.$$(SalesForce.selectTagSelector);
         // await iframe.waitForNavigation(SalesForce.selectTagSelector);
-        await iframe.select(
-          SalesForce.selectTagSelector,
-          chosenSiteValue
-        );
+        await iframe.select(SalesForce.selectTagSelector, chosenSiteValue);
 
         await new Promise((resolve) => setTimeout(resolve, 10000));
 
