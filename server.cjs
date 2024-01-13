@@ -1,5 +1,7 @@
 const express = require('express');
 const bot = require('./bot.cjs');
+const  getDropTypeUnverified  = require('./getDropType.cjs');
+const  getConsentFinal = require('./getConsentFinal.cjs');
 const app = express();
 
 // app.get('/', async(req, res) => {
@@ -30,12 +32,43 @@ app.get('/search', async(req, res) => {
 });
 
 
+app.get('/getDropTypes', async (req, res) => {
+  const { chosenSite, username, password } = req.query;
+    try {
+      const response = await getDropTypeUnverified(chosenSite, username, password)
+      res.send({
+        success: true,
+        data: response,
+      });
+    } catch (error) {
+      res.send({      
+        error: error.message,
+      })
+  }
+}
+)
+app.get('/getConsentFinal', async (req, res) => {
+  const { chosenSite, username, password } = req.query;
+    try {
+      const response = await getConsentFinal(chosenSite, username, password)
+      res.send({
+        success: true,
+        data: response,
+      });
+    } catch (error) {
+      res.send({      
+        error: error.message,
+      })
+  }
+}
+)
+
 const PORT = process.env.PORT || 7000;
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}...`);
 });
 
-
+// http://localhost:7000/getDropTypes?chosenSite=TNHLON40_1021A&username=yalmeida.rj@gmail.com&password=rYeEsydWN!8808168eXkA9gV47A
 // http://localhost:7000/
 // /search?chosenSite=59&username=yalmeida.rj@gmail.com&password=rYeEsydWN!8808168eXkA9gV47A
