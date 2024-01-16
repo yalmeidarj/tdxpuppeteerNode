@@ -181,6 +181,7 @@ const SalesForce = {
     RMHLON34_3015B: "160",
     RMHLON34_3025B: "161",
     RMHLON34_3051A: "162",
+    RMHLON34_3101A: "163",
     RMHLON34_3206A: "164",
     SFVLON28_1033A: "165",
     SFVLON28_3506A: "166",
@@ -354,6 +355,8 @@ async function getConsentFinal(chosenSite, username, password) {
                 item.statusAttempt === " Drop Type Unverified " ||
                 item.statusAttempt === "Consent Final" ||
                 item.statusAttempt === "Consent Final Yes" ||
+                item.statusAttempt === "Site Visit Required" ||
+                item.statusAttempt === " Site Visit Required " ||
                 item.statusAttempt === "Consent Final No" 
         );
     });
@@ -406,10 +409,10 @@ async function getConsentFinal(chosenSite, username, password) {
     // write to file
    
     // name it with the chosenSite
-    const data = JSON.stringify(finalObject, null, 2);
-    fs.writeFileSync(`./${chosenSite}.json`, data);
-    console.log("JSON data is saved.");
-    // Close the browser
+    // const data = JSON.stringify(finalObject, null, 2);
+    // fs.writeFileSync(`./${chosenSite}.json`, data);
+    // console.log("JSON data is saved.");
+    
 
   await browser.close();
 
