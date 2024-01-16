@@ -239,7 +239,7 @@ async function getConsentFinal(chosenSite, username, password) {
         ? process.env.PUPPETEER_EXEUTABLE_PATH
         : puppeteeer.executablePath(),
 
-    headless: false,
+    headless: "new",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
@@ -263,7 +263,7 @@ async function getConsentFinal(chosenSite, username, password) {
   // Click the login button
   await page.click('input[name="Login"]');
 
-  await new Promise((resolve) => setTimeout(resolve, 35000));
+  await new Promise((resolve) => setTimeout(resolve, 65000));
   // Wait for the iframe to load
 
   const frames = await page.frames();
