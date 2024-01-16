@@ -83,7 +83,9 @@ const getConsentFinal = require("./getConsentFinal.cjs");
 // Setting up CORS to allow requests from localhost:3000
 const io = new Server(server, {
   cors: {
-    origin: "https://tdx-server-actions.vercel.app",
+    // origin for local development and production
+    origin: ["http://localhost:3000", "https://tdx-server-actions.vercel.app"],
+    
     methods: ["GET", "POST"],
   },
 });
