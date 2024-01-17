@@ -331,7 +331,10 @@ async function getConsentFinal(chosenSite, username, password) {
 
           const statusAttempt = `${columns[1]} ${columns[3]}`;
             const consent = columns[3] ?? statusAttempt;
-            const status = columns[1];
+            const status =
+              columns[1] === "Consent Final"
+                ? `${columns[1]} ${columns[3]}`
+                : columns[1];
 
           // // Add the street name to the unique streets set
           // uniqueStreets.add(streetName);

@@ -79,7 +79,7 @@ const server = http.createServer(app);
 const { Server } = require('socket.io');
 const PORT = process.env.PORT || 7000;
 const getConsentFinal = require("./getConsentFinal.cjs");
-
+const bot = require("./bot.cjs");
 // Setting up CORS to allow requests from localhost:3000
 const io = new Server(server, {
   cors: {
@@ -107,6 +107,17 @@ io.on("connection", (socket) => {
         socket.emit("botResponse", { success: false, error: error.message });
       }
     });
+  
+  socket.on("getAllSiteData", async (data) => {
+    try {
+      const response = await bot(data.chosenSite, data.username, data.password);
+      socket.emit("AllTableData", { success: true, data: response });
+    } catch (error) {
+      socket.emit("AllTableData", { success: false, error: error.message });
+    }
+  });
+
+
 
   socket.on("disconnect", () => {
     console.log("A user disconnected");

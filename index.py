@@ -19,6 +19,47 @@ html_data = """
 """
 
 # Clean the data
-cleaned_data = clean_data(html_data)
-print(cleaned_data)
+# cleaned_data = clean_data(html_data)
+# print(cleaned_data)
 
+current_list = [
+"DELANEY DR",
+"DENTON WAY",
+"FOAKES DR",
+"FRENETTE ST",
+"GENNER DR",
+"GOSNELL TERR",
+"GRIFFITHS DR",
+"LEAH CR",
+"NEPTUNE WAY",
+"REA ST",
+"SAFARI CRT",
+"SAYOR DR",
+"SILLETT DR",
+"SIMMS DR",
+"SYKES ST",
+"VALIN ST",
+"WILCE DR",
+"WITHAY DR",
+]
+
+fetched_list = [
+    "SAYOR DR",
+    "GRIFFITHS DR",
+    "WILCE DR",
+    "SIMMS DR",
+    "DELANEY DR",
+    "LEAH CR",
+    "WITHAY DR",
+    "GENNER DR",
+    "REA ST",
+    "FOAKES DR",
+    "SYKES ST",
+    "SILLETT DR"
+  ]
+
+#get the streets in current_list that are not in fetched_list
+
+streets = [street for street in current_list if street not in fetched_list]
+
+print(streets)
