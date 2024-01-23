@@ -170,64 +170,65 @@ const SalesForce = {
     OTWAON10_5111A: "149",
     PCNGON62_1011A: "150",
     PCNGON62_1021B: "151",
-    PCNGON62_1106A: "152",
-    PCNGON62_1109A: "153",
-    PLGVON53_1831A: "154",
-    PLGVON53_1832A: "155",
-    PLGVON53_3011A: "156",
-    PWSNON31_2801A: "157",
-    PWSNON31_4801A: "158",
-    PWSNON31_4812A: "159",
-    RMHLON34_3015B: "160",
-    RMHLON34_3025B: "161",
-    RMHLON34_3051A: "162",
-    RMHLON34_3101A: "163",
-    RMHLON34_3206A: "164",
-    SFVLON28_1033A: "165",
-    SFVLON28_3506A: "166",
-    SFVLON28_3508A: "167",
-    SFVLON34_1032A: "168",
-    SFVLON34_1033B: "169",
-    STCTON10_1771B: "170",
-    STRDON29_4812A: "171",
-    STTNON82_1031A: "172",
-    STTNON82_1042A: "173",
-    STTNON82_1042AA: "174",
-    STTNON82_1051A: "175",
-    STTNON82_1201A: "176",
-    STTNON82_1211AA: "177",
-    STTNON82_2601A: "178",
-    TCMSON20_2121A: "179",
-    TNHLON40_1021A: "180",
-    TNHLON40_3024A: "181",
-    TNHLON40_3101A: "182",
-    TNHLON40_3102A: "183",
-    TNHLON40_3103A: "184",
-    TNHLON40_3104A: "185",
-    TNHLON40_4041A: "186",
-    TNHLON40_4043A: "187",
-    TNHLON40_4081A: "188",
-    TNHLON40_4111A: "189",
-    TNHLON40_4121A: "190",
-    TNHLON40_4122A: "191",
-    TNHLON40_4212A: "192",
-    TNHLON40_4252A: "193",
-    TNHLON40_4261A: "194",
-    UNVLON55_1052A: "195",
-    VCTAON41_1020A: "196",
-    VCTAON41_1811A: "197",
-    WDBGON48_2111A: "198",
-    WDBGON48_2201B: "199",
-    WNDSON13_3123A: "200",
-    "WNPGMB06_101-7": "201",
-    "WNPGMB06_401-2": "202",
-    "WNPGMB06_406-1": "203",
-    WTBYON94_2013A: "204",
-    WTBYON94_2013B: "205",
-    WTBYON94_2044A: "206",
-    WTBYON94_2051C: "207",
-    WTBYON94_3013B: "208",
-    WTBYON94_3064A: "209",
+    PCNGON62_1061A: "152",
+    PCNGON62_1106A: "153",
+    PCNGON62_1109A: "154",
+    PLGVON53_1831A: "155",
+    PLGVON53_1832A: "156",
+    PLGVON53_3011A: "157",
+    PWSNON31_2801A: "158",
+    PWSNON31_4801A: "159",
+    PWSNON31_4812A: "160",
+    RMHLON34_3015B: "161",
+    RMHLON34_3025B: "162",
+    RMHLON34_3051A: "163",
+    RMHLON34_3101A: "164",
+    RMHLON34_3206A: "165",
+    SFVLON28_1033A: "166",
+    SFVLON28_3506A: "167",
+    SFVLON28_3508A: "168",
+    SFVLON34_1032A: "169",
+    SFVLON34_1033B: "170",
+    STCTON10_1771B: "171",
+    STRDON29_4812A: "172",
+    STTNON82_1031A: "173",
+    STTNON82_1042A: "174",
+    STTNON82_1042AA: "175",
+    STTNON82_1051A: "176",
+    STTNON82_1201A: "177",
+    STTNON82_1211AA: "178",
+    STTNON82_2601A: "179",
+    TCMSON20_2121A: "180",
+    TNHLON40_1021A: "181",
+    TNHLON40_3024A: "182",
+    TNHLON40_3101A: "183",
+    TNHLON40_3102A: "184",
+    TNHLON40_3103A: "185",
+    TNHLON40_3104A: "186",
+    TNHLON40_4041A: "187",
+    TNHLON40_4043A: "188",
+    TNHLON40_4081A: "189",
+    TNHLON40_4111A: "190",
+    TNHLON40_4121A: "191",
+    TNHLON40_4122A: "192",
+    TNHLON40_4212A: "193",
+    TNHLON40_4252A: "194",
+    TNHLON40_4261A: "195",
+    UNVLON55_1052A: "196",
+    VCTAON41_1020A: "197",
+    VCTAON41_1811A: "198",
+    WDBGON48_2111A: "199",
+    WDBGON48_2201B: "200",
+    WNDSON13_3123A: "201",
+    "WNPGMB06_101-7": "202",
+    "WNPGMB06_401-2": "203",
+    "WNPGMB06_406-1": "204",
+    WTBYON94_2013A: "205",
+    WTBYON94_2013B: "206",
+    WTBYON94_2044A: "207",
+    WTBYON94_2051C: "208",
+    WTBYON94_3013B: "209",
+    WTBYON94_3064A: "210",
   },
 };
 
@@ -278,14 +279,14 @@ async function getConsentFinal(chosenSite, username, password) {
   const selectElementXPATH =
     "/html/body/div[1]/div[2]/div/div[4]/div[2]/div/div[3]/select"; // The selector for your select element
 
-    const chosenSiteValue = SalesForce.siteOptions[chosenSite];
-    console.log(`chosenSiteValue: ${chosenSiteValue}`);
+    // const chosenSiteValue = SalesForce.siteOptions[chosenSite];
+    // console.log(`chosenSiteValue: ${chosenSiteValue}`);
     
 
   // const selectTag = await page.$x(selectElement);
   await iframe.$$(SalesForce.selectTagSelector);
   // await iframe.waitForNavigation(SalesForce.selectTagSelector);
-  await iframe.select(SalesForce.selectTagSelector, chosenSiteValue);
+  await iframe.select(SalesForce.selectTagSelector, chosenSite);
 
   await new Promise((resolve) => setTimeout(resolve, 10000));
 
@@ -313,6 +314,7 @@ async function getConsentFinal(chosenSite, username, password) {
   let allData = [];
   let uniqueStreets = new Set();
   let hasNextPage = true;
+  let chosenSiteName = "";
 
   while (hasNextPage) {
     // Wait for the table to be available
@@ -325,16 +327,17 @@ async function getConsentFinal(chosenSite, username, password) {
           const columns = Array.from(row.querySelectorAll("td")).map(
             (column) => column.textContent?.trim() || ""
           );
+          const siteName = columns[2];
           const addressSplit = columns[0].split(" ");
           const streetNumber = addressSplit[0];
           const streetName = addressSplit.slice(1).join(" ");
 
           const statusAttempt = `${columns[1]} ${columns[3]}`;
-            const consent = columns[3] ?? statusAttempt;
-            const status =
-              columns[1] === "Consent Final"
-                ? `${columns[1]} ${columns[3]}`
-                : columns[1];
+          const consent = columns[3] ?? statusAttempt;
+          const status =
+            columns[1] === "Consent Final"
+              ? `${columns[1]} ${columns[3]}`
+              : columns[1];
 
           // // Add the street name to the unique streets set
           // uniqueStreets.add(streetName);
@@ -348,23 +351,31 @@ async function getConsentFinal(chosenSite, username, password) {
             email: "", // Adjust as needed
             notes: "", // Adjust as needed
             statusAttempt: status,
-            consent,
-            type: "", // Adjust as needed
+            consent: consent,
+            type: "",
+            siteName,
           }; // filter by statusAttempt
         })
         .filter(
           (item) =>
             item.statusAttempt === "Drop Type Unverified" ||
-                item.statusAttempt === " Drop Type Unverified " ||
-                item.statusAttempt === "Consent Final" ||
-                item.statusAttempt === "Consent Final Yes" ||
-                item.statusAttempt === "Site Visit Required" ||
-                item.statusAttempt === " Site Visit Required " ||
-                item.statusAttempt === "Consent Final No" 
+            item.statusAttempt === " Drop Type Unverified " ||
+            item.statusAttempt === "Consent Final" ||
+            item.statusAttempt === "Consent Final Yes" ||
+            item.statusAttempt === "Site Visit Required" ||
+            item.statusAttempt === " Site Visit Required " ||
+            item.statusAttempt === "Consent Final No"
         );
+
+
     });
 
-      
+    // If chosenSiteName is not set, get it from the first row of the current page
+    if (!chosenSiteName && tableData.length > 0) {
+        chosenSiteName = tableData[0].siteName;
+    }
+
+
 
     // Process and treat the data outside of the evaluate function
     tableData.forEach((item) => {
@@ -382,8 +393,6 @@ async function getConsentFinal(chosenSite, username, password) {
         street: item.streetName,
       });
     });
-    
-    
 
     // Check if the 'Next' button is available and not disabled
     const isNextButtonAvailable = await iframe.evaluate(() => {
@@ -402,7 +411,7 @@ async function getConsentFinal(chosenSite, username, password) {
 
   // Construct the final object
   const finalObject = {
-    name: chosenSite, // Adjust as needed
+    name: chosenSiteName,
     neighborhood: "to be verified",
     priorityStatus: 1,
     houses: allData,
