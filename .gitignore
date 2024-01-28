@@ -5,3 +5,7 @@ node_modules
 jsonFiles
 
 odds_data.json
+
+data-to-feed-SF.csv
+lib/toSeedObject.json
+lib/allData.json
