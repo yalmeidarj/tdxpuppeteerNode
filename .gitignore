@@ -11,3 +11,5 @@ lib/toSeedObject.json
 lib/allData.json
 
 index.py
+
+./index.py
