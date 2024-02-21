@@ -7,6 +7,7 @@
   "scripts": {
     "seeding": "node seeding.cjs",
     "newSite": "node runBot.cjs",
+    "updateSite": "node runGetConsentFinal.cjs",
     "start": "node server.cjs",
     "fetch" : "node bot.cjs",
     "test": "echo \"Error: no test specified\" && exit 1"
