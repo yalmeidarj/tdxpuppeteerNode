@@ -13,7 +13,7 @@ async function getConsentFinal(chosenSite, username, password) {
         ? process.env.PUPPETEER_EXEUTABLE_PATH
         : puppeteeer.executablePath(),
 
-    headless: "false",
+    headless: "new",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
