@@ -13,7 +13,7 @@ async function getConsentFinal(chosenSite, username, password) {
         ? process.env.PUPPETEER_EXEUTABLE_PATH
         : puppeteeer.executablePath(),
 
-    headless: "new",
+    headless: "false",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
@@ -52,9 +52,8 @@ async function getConsentFinal(chosenSite, username, password) {
   const selectElementXPATH =
     "/html/body/div[1]/div[2]/div/div[4]/div[2]/div/div[3]/select"; // The selector for your select element
 
-    // const chosenSiteValue = SalesForce.siteOptions[chosenSite];
-    // console.log(`chosenSiteValue: ${chosenSiteValue}`);
-    
+  // const chosenSiteValue = SalesForce.siteOptions[chosenSite];
+  // console.log(`chosenSiteValue: ${chosenSiteValue}`);
 
   // const selectTag = await page.$x(selectElement);
   await iframe.$$(SalesForce.selectTagSelector);
@@ -139,16 +138,12 @@ async function getConsentFinal(chosenSite, username, password) {
             item.statusAttempt === " Site Visit Required " ||
             item.statusAttempt === "Consent Final No"
         );
-
-
     });
 
     // If chosenSiteName is not set, get it from the first row of the current page
     if (!chosenSiteName && tableData.length > 0) {
-        chosenSiteName = tableData[0].siteName;
+      chosenSiteName = tableData[0].siteName;
     }
-
-
 
     // Process and treat the data outside of the evaluate function
     tableData.forEach((item) => {
@@ -191,13 +186,12 @@ async function getConsentFinal(chosenSite, username, password) {
     streets: Array.from(uniqueStreets),
   };
 
-    // write to file
-   
-    // name it with the chosenSite
-    // const data = JSON.stringify(finalObject, null, 2);
-    // fs.writeFileSync(`./${chosenSite}.json`, data);
-    // console.log("JSON data is saved.");
-    
+  // create a json file with the data
+  fs.writeFileSync(
+    `${chosenSiteName}.json`,
+    JSON.stringify(finalObject, null, 2),
+    "utf8"
+  );
 
   await browser.close();
 
