@@ -13,12 +13,11 @@ async function getConsentFinal(chosenSite, username, password) {
         ? process.env.PUPPETEER_EXEUTABLE_PATH
         : puppeteeer.executablePath(),
 
-    headless: "new",
+    headless: 'new',
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
-  const page = await browser.newPage();
 
-  // const page = await browser.newPage();
+  const page = await browser.newPage();
 
   // Navigate the page to a URL
   await page.goto(SalesForce.URL);
@@ -37,7 +36,7 @@ async function getConsentFinal(chosenSite, username, password) {
   // Click the login button
   await page.click('input[name="Login"]');
 
-  await new Promise((resolve) => setTimeout(resolve, 65000));
+  await new Promise((resolve) => setTimeout(resolve, 45000));
   // Wait for the iframe to load
 
   const frames = await page.frames();
@@ -52,13 +51,13 @@ async function getConsentFinal(chosenSite, username, password) {
   const selectElementXPATH =
     "/html/body/div[1]/div[2]/div/div[4]/div[2]/div/div[3]/select"; // The selector for your select element
 
-  // const chosenSiteValue = SalesForce.siteOptions[chosenSite];
+  const chosenSiteValue = SalesForce.siteOptions[chosenSite];
   // console.log(`chosenSiteValue: ${chosenSiteValue}`);
 
   // const selectTag = await page.$x(selectElement);
   await iframe.$$(SalesForce.selectTagSelector);
   // await iframe.waitForNavigation(SalesForce.selectTagSelector);
-  await iframe.select(SalesForce.selectTagSelector, chosenSite);
+  await iframe.select(SalesForce.selectTagSelector, chosenSiteValue);
 
   await new Promise((resolve) => setTimeout(resolve, 10000));
 

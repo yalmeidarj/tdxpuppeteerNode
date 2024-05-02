@@ -13,3 +13,7 @@ lib/allData.json
 index.py
 
 ./index.py
+
+
+compare_site.py
+helper.py
