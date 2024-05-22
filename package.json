@@ -5,7 +5,7 @@
   "main": "server.cjs",
   "type": "module",
   "scripts": {
-    "seeding": "node seeding.cjs",
+    "seeding": "node runSeeding.cjs",
     "newSite": "node runBot.cjs",
     "updateSite": "node runGetConsentFinal.cjs",
     "start": "node server.cjs",

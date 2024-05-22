@@ -14,6 +14,7 @@ async function getConsentFinal(chosenSite, username, password) {
         : puppeteeer.executablePath(),
 
     headless: 'new',
+    // headless: false,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
@@ -38,26 +39,32 @@ async function getConsentFinal(chosenSite, username, password) {
 
   await new Promise((resolve) => setTimeout(resolve, 45000));
   // Wait for the iframe to load
-
   const frames = await page.frames();
-  // console.log(frames);
-  console.log(frames.length);
+
+  console.log(`\nNumber of frames loaded: ${frames.length}\n`);
 
   const iframe = frames[1];
 
-  console.log(frames);
   // Wait for the dropdown to be available and select the option
 
+  // "/html/body/div[1]/div[2]/div/div[4]/div[2]/div/div[3]/select"; // The selector for your select element
   const selectElementXPATH =
-    "/html/body/div[1]/div[2]/div/div[4]/div[2]/div/div[3]/select"; // The selector for your select element
+    "/html/body/div/div[2]/div/div[4]/div[2]/div/div[3]/select"; // The selector for your select element
 
   const chosenSiteValue = SalesForce.siteOptions[chosenSite];
   // console.log(`chosenSiteValue: ${chosenSiteValue}`);
 
+  // iframe.waitForSelector(selectElementXPATH);
+  // site_select = Select(driver.find_element(By.XPATH, selectElementXPATH))
+
   // const selectTag = await page.$x(selectElement);
-  await iframe.$$(SalesForce.selectTagSelector);
+  // await iframe.$$(SalesForce.selectTagSelector);
   // await iframe.waitForNavigation(SalesForce.selectTagSelector);
   await iframe.select(SalesForce.selectTagSelector, chosenSiteValue);
+  
+  // await site_select.select_by_visible_text(
+  //   chosenSite
+  // );
 
   await new Promise((resolve) => setTimeout(resolve, 10000));
 

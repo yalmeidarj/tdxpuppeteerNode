@@ -1,9 +1,8 @@
 // runBot.cjs
 const bot = require("./bot.cjs");
-// const chosenSite = "PCNGON62_1022A";
-// const chosenSite = "PCNGON62_1041D";
 
-const chosenSite = "PCNGON62_1062A";
+const chosenSite = "PCNGON62_1042A";
+// const chosenSite = "GMLYON20_3876A";
 
 
 

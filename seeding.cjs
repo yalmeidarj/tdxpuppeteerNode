@@ -4,87 +4,88 @@ const fs = require("fs");
 const SalesForce = require("./lib/utils.cjs");
 
 
-async function main(chosenSite, username, password, data) {
-    async function updateSiteDetails(iframe) {
-      const saveButtonSelector =
-        "body > div > div:nth-child(2) > div > div > div:nth-child(4) > div.col-lg-8.col-md-8.col-sm-10.col-xs-11.label > button.button.orangeGrad";
-      const nameSelector =
-        "body > div > div:nth-child(2) > div > div > form > div:nth-child(3) > div.col-lg-5.col-md-5.col-sm-6.col-xs-7.input > input:nth-child(1)";
-      const lastNameSelector =
-        "body > div > div:nth-child(2) > div > div > form > div:nth-child(3) > div.col-lg-5.col-md-5.col-sm-6.col-xs-7.input > input:nth-child(3)";
+async function seeding(chosenSite, username, password, data) {
+    // async function updateSiteDetails(iframe) {
+    //   const saveButtonSelector =
+    //     "body > div > div:nth-child(2) > div > div > div:nth-child(4) > div.col-lg-8.col-md-8.col-sm-10.col-xs-11.label > button.button.orangeGrad";
+    //   const nameSelector =
+    //     "body > div > div:nth-child(2) > div > div > form > div:nth-child(3) > div.col-lg-5.col-md-5.col-sm-6.col-xs-7.input > input:nth-child(1)";
+    //   const lastNameSelector =
+    //     "body > div > div:nth-child(2) > div > div > form > div:nth-child(3) > div.col-lg-5.col-md-5.col-sm-6.col-xs-7.input > input:nth-child(3)";
 
-      const phoneSelector = "#phone";
+    //   const phoneSelector = "#phone";
 
-      const emailSelector =
-        "body > div > div:nth-child(2) > div > div > form > div:nth-child(6) > div.col-lg-5.col-md-5.col-sm-6.col-xs-7.input > input";
+    //   const emailSelector =
+    //     "body > div > div:nth-child(2) > div > div > form > div:nth-child(6) > div.col-lg-5.col-md-5.col-sm-6.col-xs-7.input > input";
 
-      const typeSelector =
-        "body > div > div:nth-child(2) > div > div > form > div:nth-child(12) > div.col-lg-5.col-md-5.col-sm-6.col-xs-7.input > select";
+    //   const typeSelector =
+    //     "body > div > div:nth-child(2) > div > div > form > div:nth-child(12) > div.col-lg-5.col-md-5.col-sm-6.col-xs-7.input > select";
 
-      const consentSelector =
-        "body > div > div:nth-child(2) > div > div > form > div:nth-child(17) > div.col-lg-5.col-md-5.col-sm-6.col-xs-7.input > select";
+    //   const consentSelector =
+    //     "body > div > div:nth-child(2) > div > div > form > div:nth-child(17) > div.col-lg-5.col-md-5.col-sm-6.col-xs-7.input > select";
 
-      // const dataToFeedSF = data;
-      console.log(`Data Object: ${data}`);
+    //   // const dataToFeedSF = data;
+    //   console.log(`Data Object: ${data}`);
 
-      console.log(
-        `lastName: ${data.lastName}, name: ${data.name}, phone: ${data.phone}, email: ${data.email}, type: ${data.type}`
-      );
+    //   console.log(
+    //     `lastName: ${data.lastName}, name: ${data.name}, phone: ${data.phone}, email: ${data.email}, type: ${data.type}`
+    //   );
 
-      // return true;
-      try {
-        const formSelector = "body > div > div:nth-child(2) > div > div > form";
-        await iframe.waitForSelector(formSelector);
+    //   // return true;
+    //   try {
+    //     const formSelector = "body > div > div:nth-child(2) > div > div > form";
+    //     await iframe.waitForSelector(formSelector);
 
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+    //     await new Promise((resolve) => setTimeout(resolve, 3000));
 
-        const lastName = data.lastName ? data.lastName : "Last Name"
-        const name = data.name ? data.name : "First Name"
-        const phone = data.phone ? data.phone : "0000000000"
-        const email = data.email ? data.email : "noreply@aecon.com"
-        const type = data.type ? data.type : ""
+    //     const lastName = data.lastName ? data.lastName : "Last Name"
+    //     const name = data.name ? data.name : "First Name"
+    //     const phone = data.phone ? data.phone : "0000000000"
+    //     const email = data.email ? data.email : "noreply@aecon.com"
+    //     const type = data.type ? data.type : ""
 
-          await iframe.focus(lastNameSelector);
-          await iframe.keyboard.type(lastName);
+    //       await iframe.focus(lastNameSelector);
+    //       await iframe.keyboard.type(lastName);
 
-          await iframe.focus(nameSelector);
-          await iframe.keyboard.type(name);
+    //       await iframe.focus(nameSelector);
+    //       await iframe.keyboard.type(name);
 
-          await iframe.focus(phoneSelector);
-          await iframe.keyboard.type(phone);
+    //       await iframe.focus(phoneSelector);
+    //       await iframe.keyboard.type(phone);
 
-          await iframe.focus(emailSelector);
-          await iframe.keyboard.type(email);
+    //       await iframe.focus(emailSelector);
+    //       await iframe.keyboard.type(email);
 
-        // await iframe.$eval(nameSelector, (el, value) => (el.value = value), name);
+    //     // await iframe.$eval(nameSelector, (el, value) => (el.value = value), name);
 
-        // await iframe.$eval(phoneSelector, (el, value) => (el.value = value), phone);
+    //     // await iframe.$eval(phoneSelector, (el, value) => (el.value = value), phone);
 
-        // await iframe.$eval(emailSelector, (el, value) => (el.value = value), email);
+    //     // await iframe.$eval(emailSelector, (el, value) => (el.value = value), email);
 
-        // Select dropdowns and checkboxes
-        await iframe.waitForSelector(typeSelector);
-        await iframe.select(typeSelector, data.type);
-        console.log("Type selected:", data.type);
+    //     // Select dropdowns and checkboxes
+    //     await iframe.waitForSelector(typeSelector);
+    //     await iframe.select(typeSelector, data.type);
+    //     console.log("Type selected:", data.type);
 
-        const statusSelector =
-            "body > div > div:nth-child(2) > div > div > form > div:nth-child(13) > div.col-lg-5.col-md-5.col-sm-6.col-xs-7.input > select";
-        await iframe.waitForSelector(statusSelector);
-        await iframe.select(statusSelector, data.statusAttempt);
-        if (data.consent === "Yes" || data.consent === "No") {
-          await iframe.waitForSelector(consentSelector);
-          await iframe.select(consentSelector, data.consent);
-        }
+    //     const statusSelector =
+    //         "body > div > div:nth-child(2) > div > div > form > div:nth-child(13) > div.col-lg-5.col-md-5.col-sm-6.col-xs-7.input > select";
+    //     await iframe.waitForSelector(statusSelector);
+    //     await iframe.select(statusSelector, data.statusAttempt);
+    //     if (data.consent === "Yes" || data.consent === "No") {
+    //       await iframe.waitForSelector(consentSelector);
+    //       await iframe.select(consentSelector, data.consent);
+    //     }
 
-        await iframe.waitForSelector(saveButtonSelector);
-        await iframe.click(saveButtonSelector);
-        return true;
+    //     await iframe.waitForSelector(saveButtonSelector);
+    //     await iframe.click(saveButtonSelector);
+    //     return true;
 
-      } catch (error) {
-        console.error("Error updating site details:", error);
-      }
-    }
-  const browser = await puppeteeer.launch({
+    //   } catch (error) {
+    //     console.error("Error updating site details:", error);
+    //   }
+    // }
+    console.log("main function running...");
+    const browser = await puppeteeer.launch({
     executablePath:
       process.env.NODE_ENV === "production"
         ? process.env.PUPPETEER_EXEUTABLE_PATH
@@ -218,7 +219,14 @@ async function main(chosenSite, username, password, data) {
             console.log(`Data Object: ${ await data[i]}`);
 
             console.log(
-              `lastName: ${data[i].lastName}, name: ${data[i].name}, phone: ${data[i].phone}, email: ${data[i].email}, type: ${data[i].type}`
+              `lastName: ${data[i].lastName},
+                name: ${data[i].name},
+                phone: ${data[i].phone},
+                email: ${data[i].email},
+                type: ${data[i].type},
+                statusAttempt: ${data[i].statusAttempt},
+                consent: ${data[i].consent}
+              `
             );
 
             // return true;
@@ -237,7 +245,7 @@ async function main(chosenSite, username, password, data) {
               const email = data[i].email
                 ? data[i].email
                 : "noreply@aecon.com";
-              const type = data[i].type ? data[i].type : "";
+              const constructionType = data[i].type ? data[i].type : "";
 
               await iframe.focus(lastNameSelector);
               await iframe.keyboard.type(lastName);
@@ -390,10 +398,8 @@ dataArr.shift();
 // Remove the last record
 dataArr.pop();
 
-console.log(dataArr);
+// console.log(dataArr);
 
 
 
-main("RMHLON34_3101A", SalesForce.username, SalesForce.password, dataArr);
-
-module.exports = main;
+module.exports = seeding;
