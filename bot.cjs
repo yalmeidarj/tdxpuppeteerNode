@@ -37,7 +37,7 @@ async function bot(chosenSite, username, password) {
         // Click the login button
         await page.click('input[name="Login"]');
 
-        await new Promise((resolve) => setTimeout(resolve, 55000));
+        await new Promise((resolve) => setTimeout(resolve, 46000));
         // Wait for the iframe to load
 
 
